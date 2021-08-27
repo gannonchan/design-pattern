@@ -12,6 +12,7 @@ public class CglibDynamicProxy {
         CglibTarget proxy = (CglibTarget) cglibDynamicProxy.createProxy(cglibTarget.getClass());
         proxy.executor();
     }
+    
     public Object createProxy(Class clazz){
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(clazz);
@@ -26,6 +27,7 @@ class CglibTarget{
     }
 }
 
+// MethodInterceptor接口继承了Callback空接口
 class CglibMethodIntercept implements MethodInterceptor{
 
     @Override
